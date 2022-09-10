@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 
+import static models.Task.*;
 import static org.junit.Assert.*;
 
 public class TaskTest {
@@ -15,7 +16,7 @@ public class TaskTest {
 
     @After
     public void tearDown() throws Exception {
-        Task.clearAllTasks(); // clear out all the tasks before each test
+        clearAllTasks(); // clear out all the tasks before each test
     }
 
     @Test
@@ -34,15 +35,15 @@ public class TaskTest {
     public void AllTasksAreCorrectlyReturned_true() throws Exception {
         Task task = setupNewTask();
         Task otherTask = new Task("Brush the cat");
-        assertEquals(2, Task.getAll().size());
+        assertEquals(2, getAll().size());
     }
 
     @Test
     public void AllTasksContainsAllTasks_true() throws Exception {
         Task task = setupNewTask();
         Task otherTask = new Task("Brush the cat");
-        assertTrue(Task.getAll().contains(task));
-        assertTrue(Task.getAll().contains(otherTask));
+        assertTrue(getAll().containsValue(task));
+        assertTrue(getAll().containsValue(otherTask));
     }
 
     @Test
@@ -66,7 +67,11 @@ public class TaskTest {
     @Test
     public void findReturnsCorrectTask() throws Exception {
         Task task = setupNewTask();
-        assertEquals(1, Task.findById(task.getId()).getId());
+        assertEquals(1, findById(task.getId()).getId());
+    }
+
+    private Task findById(int id) {
+            return null;
     }
 
 
@@ -74,7 +79,7 @@ public class TaskTest {
     public void findReturnsCorrectTaskWhenMoreThanOneTaskExists() throws Exception {
         Task task = setupNewTask();
         Task otherTask = new Task("Brush the cat");
-        assertEquals(2, Task.findById(otherTask.getId()).getId());
+        assertEquals(2, findById(otherTask.getId()).getId());
     }
 
     @Test
@@ -96,16 +101,16 @@ public class TaskTest {
         Task task = setupNewTask();
         Task otherTask = new Task("Brush the cat");
         task.deleteTask();
-        assertEquals(1, Task.getAll().size()); //one is left
-        assertEquals(Task.getAll().get(0).getId(), 2); //the one that was deleted has the id of 2
+        assertEquals(1, getAll().size()); //one is left
+        assertEquals(getAll().get(0).getClass(), 2); //the one that was deleted has the id of 2
     }
 
     @Test
     public void deleteAllTasksDeletesAllTasks() throws Exception {
         Task task = setupNewTask();
         Task otherTask = setupNewTask();
-        Task.clearAllTasks();
-        assertEquals(0, Task.getAll().size());
+        clearAllTasks();
+        assertEquals(0, getAll().size());
     }
 
 
