@@ -17,9 +17,9 @@ public interface TaskDao {
 
     //UPDATE
 
-//    void update(int id, String content);
-//
-//    void deleteById(int id);
-//
-//    void clearAllTask();
+    void update(int id, String content);
+
+    void deleteById(int id);
+
+    void clearAllTask();
 }

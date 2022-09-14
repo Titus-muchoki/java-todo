@@ -17,26 +17,42 @@ public class Task {
         this.createdAt = LocalDateTime.now();
     }
 
-    public static void clearAllTasks() {
+//    public static void clearAllTasks() {
+//
+//    }
+//
+//    public static Map<Object, Object> getAll() {
+//            return null;
+//    }
 
-    }
-
-    public static Map<Object, Object> getAll() {
-            return null;
-    }
-
+    //    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Task task = (Task) o;
+//        return completed == task.completed && id == task.id && Objects.equals(description, task.description) && Objects.equals(createdAt, task.createdAt);
+//    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Task)) return false;
         Task task = (Task) o;
-        return completed == task.completed && id == task.id && Objects.equals(description, task.description) && Objects.equals(createdAt, task.createdAt);
+        return getCompleted() == task.getCompleted() &&
+                getId() == task.getId() &&
+                Objects.equals(getDescription(), task.getDescription());
     }
 
+    //    @Override
+//    public int hashCode() {
+//        return Objects.hash(description, completed, createdAt, id);
+//    }
     @Override
     public int hashCode() {
-        return Objects.hash(description, completed, createdAt, id);
+        return Objects.hash(getDescription(), getCompleted(), getId());
     }
+//    private void setDescription(String description) {
+//        this.description = description;
+//    }
 
     public void setDescription(String description) {
         this.description = description;
@@ -65,13 +81,14 @@ public class Task {
     public int getId() {
         return id;
     }
-
-    public void update(String floss_the_cat) {
-
-    }
-
-    public void deleteTask() {
-
-    }
 }
+
+//    public void update(String floss_the_cat) {
+//
+//    }
+//
+//    public void deleteTask() {
+//
+//    }
+
 
