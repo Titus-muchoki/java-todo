@@ -1,25 +1,25 @@
+
+
 package dao;
 
 import models.Task;
-
 import java.util.List;
 
 public interface TaskDao {
 
-    //LIST
+    // LIST
     List<Task> getAll();
 
-    //CREATE
+    // CREATE
     void add(Task task);
 
-    //READ
+    // READ
     Task findById(int id);
 
     //UPDATE
-
     void update(int id, String content);
 
+    //DELETE
     void deleteById(int id);
-
-    void clearAllTask();
+    void clearAllTasks();
 }
