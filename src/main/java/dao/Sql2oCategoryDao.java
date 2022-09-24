@@ -5,9 +5,10 @@ import org.sql2o.Sql2o;
 
 import java.util.Collection;
 
-public class Sql2oCategoryDao {
+public class Sql2oCategoryDao implements CategoryDao{
+    private final Sql2o sql2o;
     public Sql2oCategoryDao(Sql2o sql2o) {
-
+    this.sql2o = sql2o;
     }
 
     public void add(Category category) {
@@ -30,7 +31,16 @@ public class Sql2oCategoryDao {
 
     }
 
+    @Override
+    public void clearAllCategories() {
+
+    }
+
     public void clearALLCategory() {
 
+    }
+
+    public Collection<Object> getAllTasksByCategory(int categoryId) {
+        return null;
     }
 }

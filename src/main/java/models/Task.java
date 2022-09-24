@@ -103,7 +103,6 @@
 package models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Task {
@@ -113,7 +112,7 @@ public class Task {
     private LocalDateTime createdAt;
     private int id;
 
-    public Task(String description){
+    public Task(String description, int categoryId){
         this.description = description;
         this.completed = false;
         this.createdAt = LocalDateTime.now();
