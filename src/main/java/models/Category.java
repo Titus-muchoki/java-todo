@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Collection;
+
 public class Category {
     public Category(String name) {
         this.name = name;
@@ -21,5 +23,17 @@ public void setId(int id){
 
     public int getId() {
         return id;
+    }
+
+    public String findById() {
+        return null;
+    }
+
+    public Collection<Object> getAll() {
+
+    }
+
+    public String getDescription() {
+        return null;
     }
 }
