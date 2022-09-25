@@ -9,6 +9,8 @@ public interface CategoryDao {
 
     void clearAllCategory();
 
+    List<Task> getAllListByCategory();
+
     //LIST
     List<Category> getAll();
 
