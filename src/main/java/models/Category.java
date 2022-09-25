@@ -10,12 +10,13 @@ public class Category {
     private String name;
     private int id;
 
-public void setName(String name){
-    this.name = name;
-}
-public void setId(int id){
-    this.id = id;
-}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -30,7 +31,7 @@ public void setId(int id){
     }
 
     public Collection<Object> getAll() {
-
+        return getAll();
     }
 
     public String getDescription() {

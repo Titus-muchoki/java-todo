@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 public class Sql2oTaskDaoTest {
     private Sql2oTaskDao taskDao; //ignore me for now. We'll create this soon.
     private Connection conn; //must be sql2o class conn
+    private int categoryId;
 
     @Before
     public void setUp() throws Exception {
@@ -24,6 +25,7 @@ public class Sql2oTaskDaoTest {
 
     @Test
     public void addingCourseSetsId() throws Exception {
+        int categoryId = 0;
         Task task = new Task ("mow the lawn", categoryId);
         int originalTaskId = task.getId();
         taskDao.add(task);

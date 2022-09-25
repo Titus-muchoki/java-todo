@@ -51,6 +51,7 @@ public class App {
         post("/tasks", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             String description = req.queryParams("description");
+            int categoryId = 0;
             Task newTask = new Task(description, categoryId);
             taskDao.add(newTask);
             res.redirect("/");
