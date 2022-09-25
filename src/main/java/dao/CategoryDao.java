@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface CategoryDao {
 
+    void clearAllCategory();
+
     //LIST
     List<Category> getAll();
 

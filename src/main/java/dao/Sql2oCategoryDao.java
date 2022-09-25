@@ -4,7 +4,6 @@ package dao;
 //import org.sql2o.Connection;
 //import org.sql2o.Sql2o;
 import models.Category;
-import models.Task;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -46,6 +45,41 @@ public class Sql2oCategoryDao implements CategoryDao{
             return con.createQuery("SELECT * FROM categories WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Category.class);
+        }
+
+    }
+    @Override
+    public  void update(int id, String newName){
+        String sql = ("UPDATE categories SET name = :name WHERE id = :id")
+                try(Connection con = sql2o.open()){
+                    con.createQuery(sql)
+                            .addParameter("name", newName)
+                            .addParameter("id", id)
+                            .executeAndFetchFirst(Category.class);
+                }catch (Sql2oException ex){
+                    System.out.println(ex);
+                }
+
+    }
+    @Override
+    public  void deleteById(int id){
+        String sql = ("DELETE from categories  WHERE id = :id")
+                try(Connection con = sql2o.open()){
+                    con.createQuery(sql)
+                            .addParameter("id", id)
+                            .executeUpdate()
+                }catch (Sql2oException ex){
+                    System.out.println(ex);
+                }
+    }
+    @Override
+    public void clearAllCategory(){
+        String sql = "DELETE from categories";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .executeUpdate()
+        }catch (Sql2oException ex){
+            System.out.println(ex);
         }
 
     }
