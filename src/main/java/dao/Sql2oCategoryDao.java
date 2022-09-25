@@ -1,20 +1,54 @@
 package dao;
 
+//import models.Category;
+//import org.sql2o.Connection;
+//import org.sql2o.Sql2o;
 import models.Category;
+import models.Task;
+import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
+import org.sql2o.Sql2oException;
+import java.util.List;
 import java.util.Collection;
+
+import static jdk.nashorn.internal.objects.NativeFunction.bind;
+import static sun.net.www.protocol.http.AuthenticatorKeys.getKey;
 
 public class Sql2oCategoryDao implements CategoryDao{
     private final Sql2o sql2o;
     public Sql2oCategoryDao(Sql2o sql2o) {
     this.sql2o = sql2o;
     }
-
+    @Override
     public void add(Category category) {
-
+    String sql = "INSERT INTO categories(name) VALUES (:NAME)";
+    try(Connection conn = sql2o.open()){
+        int id = (int) con.createQuery(sql, true);
+        .bind(category);
+        .excuteUpdate();
+        .getKey();
+        category.setId(id);
+    }catch (Sql2oException ex){
+        System.out.println(ex);
     }
 
+    }
+    @Override
+    public  List<Category> getAll(){
+        try (Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM categories")
+                    .executeAndFetch(Category.class);
+            }
+        }
+        @Override
+        public Category findById(int iD){
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM categories WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Category.class);
+        }
+
+    }
     public Collection<Object> getAll() {
         return null;
     }
