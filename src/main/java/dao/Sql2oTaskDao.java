@@ -14,7 +14,7 @@ public class Sql2oTaskDao implements TaskDao { //implementing our interface
 
     @Override
     public void add(Task task) {
-        String sql = "INSERT INTO tasks (description) VALUES (:description)"; //raw sql
+        String sql = "INSERT INTO tasks (description, categoryId) VALUES (:description, :categoryId)"; //raw sql
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(task) //map my argument onto the query so we can use information from it

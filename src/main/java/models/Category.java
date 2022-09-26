@@ -26,8 +26,8 @@ public class Category {
         return id;
     }
 
-    public String findById() {
-        return null;
+    public int findById() {
+        return id;
     }
 
     public Collection<Object> getAll() {
@@ -35,6 +35,6 @@ public class Category {
     }
 
     public String getDescription() {
-        return null;
+        return getDescription();
     }
 }
