@@ -55,10 +55,10 @@ public class Sql2oTaskDaoTest {
     @Test
     public void updateChangesTaskContent() throws Exception {
         String initialDescription = "mow the lawn";
-        Task task = new Task (initialDescription, categoryId);
+        Task task = new Task (initialDescription, 1);
         taskDao.add(task);
 
-        taskDao.update(task.getId(),"brush the cat");
+        taskDao.update(task.getId(),"brush the cat", 1);
         Task updatedTask = taskDao.findById(task.getId()); //why do I need to refind this?
         assertNotEquals(initialDescription, updatedTask.getDescription());
     }

@@ -210,7 +210,7 @@ public class Sql2oCategoryDaoTest {
         Task thirdTask = new Task("trim hedge", categoryId);
         taskDao.add(newTask);
         taskDao.add(otherTask); //we are not adding task 3 so we can test things precisely.
-        assertEquals(2, categoryDao.getAllTasksByCategory(categoryId).size());
+        assertEquals(2, categoryDao.getAllTasksByCategory(categoryId));
         assertTrue(categoryDao.getAllTasksByCategory(categoryId).contains(newTask));
         assertTrue(categoryDao.getAllTasksByCategory(categoryId).contains(otherTask));
         assertFalse(categoryDao.getAllTasksByCategory(categoryId).contains(thirdTask)); //things are accurate!

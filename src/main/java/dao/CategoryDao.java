@@ -44,13 +44,14 @@ import java.util.List;
 public interface CategoryDao {
     //LIST
     List<Category> getAll();
+    List<Task>getAllTasksByCategory(int categoryId);
 
     //CREATE
     void add (Category category);
 
     //READ
     Category findById(int id);
-    List<Task> getAllTasksByCategory(int categoryId);
+//    List<Task> getAllTasksByCategory(int categoryId);
 
     //UPDATE
     void update(int id, String name);

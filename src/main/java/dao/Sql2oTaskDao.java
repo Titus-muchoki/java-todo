@@ -43,12 +43,14 @@ public class Sql2oTaskDao implements TaskDao { //implementing our interface
         }
     }
 
+
     @Override
-    public void update(int id, String newDescription){
+    public void update(int id, String newDescription, int newCategoryId){
         String sql = "UPDATE tasks SET description = :description WHERE id=:id";
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
                     .addParameter("description", newDescription)
+                    .addParameter("category", newCategoryId)
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
