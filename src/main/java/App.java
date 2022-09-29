@@ -223,5 +223,23 @@ public class App {
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
+        //show new category form
+        get("/categories/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Category> categories = categoryDao.getAll(); //refresh list of links for navbar
+            model.put("categories", categories);
+            return new ModelAndView(model, "category-form.hbs"); //new
+        }, new HandlebarsTemplateEngine());
+
+
+        //post: process new category form
+        post("/categories", (req, res) -> { //new
+            Map<String, Object> model = new HashMap<>();
+            String name = req.queryParams("name");
+            Category newCategory = new Category(name);
+            categoryDao.add(newCategory);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
     }
 }
