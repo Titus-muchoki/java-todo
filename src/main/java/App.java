@@ -241,5 +241,16 @@ public class App {
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
+        //get: show an individual category and tasks it contains
+        get("/categories/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfCategoryToFind = Integer.parseInt(req.params("id")); //new
+            Category foundCategory = categoryDao.findById(idOfCategoryToFind);
+            model.put("category", foundCategory);
+            List<Task> allTasksByCategory = categoryDao.getAllTasksByCategory(idOfCategoryToFind);
+            model.put("tasks", allTasksByCategory);
+            model.put("categories", categoryDao.getAll()); //refresh list of links for navbar
+            return new ModelAndView(model, "category-detail.hbs"); //new
+        }, new HandlebarsTemplateEngine());
     }
 }
