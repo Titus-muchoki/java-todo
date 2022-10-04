@@ -1,4 +1,5 @@
 {{#partial "content"}}
+
     {{#if editTask}}
         <h1>Edit this Task!</h1>
         <form action="/tasks/{{task.id}}" method="post">
@@ -17,6 +18,7 @@
         </form>
     {{else}}
         <h2>Add a new Task!</h2>
+
         <form action="/tasks" method="post">
             {{#if categories}}
                 <label for="description">Task Description</label>
