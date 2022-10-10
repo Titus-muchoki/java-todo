@@ -8,24 +8,16 @@ version '1.0-SNAPSHOT'
 
 mainClassName = 'App'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 16
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-//
-//    implementation 'org.slf4j:slf4j-simple:2.0.1'
-//    implementation 'org.sql2o:sql2o:1.6.0'
-////    implementation  group: 'com.h2database', name: 'h2', version: '1.4.191'
-//    implementation 'org.junit.jupiter:junit-jupiter:5.9.0'
-//    testImplementation group: 'junit', name: 'junit', version: '4.12'
-//    implementation 'com.sparkjava:spark-core:2.9.4'
-//    implementation 'com.sparkjava:spark-template-handlebars:2.7.1'
-//    implementation 'org.slf4j:slf4j-simple:2.0.1'
-//    implementation group: 'postgresql', name: 'postgresql', version: '12.12.jdbc4' // ADD ME FOR POSTGRES VERSION 9.x
-//    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.2' // ADD ME FOR POSTGRES VERSION 10.x
+implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.2' // ADD ME FOR POSTGRES VERSION 10.x
+
+
     implementation group: 'junit', name: 'junit', version: '4.12'
     implementation "com.sparkjava:spark-core:2.6.0"
     implementation "com.sparkjava:spark-template-handlebars:2.5.5"
@@ -34,3 +26,4 @@ dependencies {
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
     implementation group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
 }
+targetCompatibility = JavaVersion.VERSION_16
