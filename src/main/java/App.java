@@ -126,7 +126,8 @@ public class App {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
         String connectionString = "jdbc:postgresql://localhost:5432/todolist"; //connect to todolist, not todolist_test!
-        Sql2o sql2o = new Sql2o(connectionString, "kajela", "8444");
+        Sql2o sql2o = new Sql2o(connectionString, "eefljmbqqnwlnd" ,"6605188bed79012ba75b85971d424b87c1c90b4bb610b21f5809dab176fa2cc9@ec2-35-170-146-54.compute-1.amazonaws.com:5432/d3brs3hiiovcel"
+);
         Sql2oTaskDao taskDao = new Sql2oTaskDao(sql2o);
         Sql2oCategoryDao categoryDao = new Sql2oCategoryDao(sql2o);
 
